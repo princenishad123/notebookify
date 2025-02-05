@@ -56,13 +56,13 @@ const Upload = () => {
           onChange={(e) => setTopic(e.target.value)}
           defaultValue={topic}
           placeholder="Topic name"
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs bg-slate-800"
         />
         {/* Language ke liye */}
         <select
           onChange={(e) => handleChangeLanguage(e)}
           value={language}
-          className="select select-bordered w-full max-w-36"
+          className="select select-bordered w-full max-w-36 bg-slate-800"
         >
           <option>Select Section</option>
           {languages.map((language, idx) => (
@@ -81,7 +81,7 @@ const Upload = () => {
         {language && (
           <select
             onChange={(e) => setSelectSection(e.target.value)}
-            className="select select-bordered w-full max-w-52"
+            className="select select-bordered w-full max-w-52 bg-slate-800"
           >
             <option>Select Section</option>
             {allSection?.map((language, idx) => (
@@ -98,7 +98,7 @@ const Upload = () => {
           onChange={(e) => setSections(e.target.value)}
           value={sections}
           placeholder="New Section "
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs bg-slate-800"
         />
 
         <button

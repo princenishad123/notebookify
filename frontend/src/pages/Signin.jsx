@@ -25,8 +25,8 @@ const Signin = () => {
 
     dispatch(updateLogin());
     localStorage.setItem("auth", JSON.stringify(res?.data));
-
-    navigate("/");
+    toast.success("login success");
+    location.replace("/");
   };
   return (
     <div>
@@ -50,7 +50,7 @@ const Signin = () => {
                   </label>
                   <input
                     id="email"
-                    className="border p-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 "
+                    className="border p-3 shadow-md bg-black dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 "
                     type="email"
                     placeholder="Email"
                     name="email"
@@ -66,7 +66,7 @@ const Signin = () => {
                   </label>
                   <input
                     id="password"
-                    className="border p-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 "
+                    className="border p-3 shadow-md bg-black dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 "
                     type="password"
                     placeholder="Password"
                     name="password"

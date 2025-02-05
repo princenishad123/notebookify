@@ -2,17 +2,22 @@ import React, { useContext, useEffect } from "react";
 import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/auth.slice";
+import { useLogoutMutation } from "../rtkQuery/query";
+import toast from "react-hot-toast";
 const Navbar = () => {
   const { isLoggedIn, auth } = useSelector((state) => state.auth);
+  const [logout, { isLoading }] = useLogoutMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handleLogout = () => {
+  const handleLogout = async () => {
     localStorage.removeItem("auth");
     dispatch(logout());
-    navigate("/login");
+    let res = await logout();
+
+    if (res.error) return toast.error("server error");
   };
   return (
-    <div className="navbar bg-base-100 sm:px-8">
+    <div className="navbar bg-gray-900 sm:px-8">
       <div className="flex-1">
         <NavLink className="btn btn-ghost text-xl hover:bg-transparent p-0">
           <img src="/main-logo.png" alt="logo" className="w-32" />
@@ -23,7 +28,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search projects kit"
-            className="input input-bordered w-24 md:w-auto"
+            className="input input-bordered w-24 md:w-auto bg-slate-800"
           />
         </div>
 
@@ -55,7 +60,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow font-semibold z-50"
+              className="menu menu-sm dropdown-content bg-slate-600 rounded-box  mt-3 w-52 p-2 shadow font-semibold z-50 "
             >
               {auth?.isAdmin ? (
                 <li>

@@ -8,6 +8,7 @@ const router = express.Router();
 router.post('/auth/signup',signupController)
 router.get('/auth/check-auth',protectedRoute,authCheck)
 router.post('/auth/login', loginController)
+router.post('/auth/logout', loginController)
 router.post('/language',protectedRoute,sectionController)
 router.get('/admin/users',protectedRoute,getAllUsers)
 router.post('/topic',protectedRoute, topicController)

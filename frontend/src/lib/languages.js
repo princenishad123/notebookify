@@ -6,9 +6,18 @@ export const languages = [
     "React.js",
     "Node.js",
     "Express.js",
-    "Java+DSA",
+  "Java",
+    "DSA",
   "Tailwind",
   "Next.js",
+  "Typescript",
   "MySQL",
-    "MongoDB"
+  "MongoDB",
+  "Sass",
+  'React Native',
+  "kotlin",
+  "c++",
+  "c#",
+  "Bootstrap",
+    "Python"
   ];

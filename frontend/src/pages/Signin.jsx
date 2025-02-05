@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { login as updateLogin } from "../redux/auth.slice";
 import { useNavigate } from "react-router-dom";
+import ButtonLoader from "../components/ButtonLoader";
 const Signin = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
   const [login, { data, isLoading, isError }] = useLoginMutation();
@@ -77,7 +78,7 @@ const Signin = () => {
                   className="w-full p-3 mt-4 text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition transform duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   type="submit"
                 >
-                  LOG IN
+                  {isLoading ? <ButtonLoader /> : "LOG IN"}
                 </button>
               </form>
 

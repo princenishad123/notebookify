@@ -6,12 +6,11 @@ import Signin from "./pages/Signin";
 import Upload from "./pages/Upload";
 
 import ReadCode from "./pages/ReadCode";
-import ProtectedRoute from "./lib/protectedRoute";
+import ProtectedRoute from "./lib/ProtectedRoute";
 import { useSelector } from "react-redux";
-import Pnf from "./pages/Pnf";
+
 import Admin from "./pages/admin";
 const App = () => {
-  const { auth } = useSelector((state) => state.auth);
   return (
     <Layout>
       <Routes>

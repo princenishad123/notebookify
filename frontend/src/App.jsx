@@ -7,9 +7,8 @@ import Upload from "./pages/Upload";
 
 import ReadCode from "./pages/ReadCode";
 import ProtectedRoute from "./lib/ProtectedRoute";
-import { useSelector } from "react-redux";
 
-import Admin from "./pages/admin";
+import Admin from "./pages/Admin";
 const App = () => {
   return (
     <Layout>

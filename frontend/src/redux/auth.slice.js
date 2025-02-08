@@ -12,10 +12,11 @@ export const authSlice = createSlice({
             state.isLoggedIn =true;
         },
 
-        logout: (state, actions) => {
-            localStorage.clear()
-            state.auth = false,
+        logoutFunc: (state, action) => {
+          console.log("log out called")
+               state.auth =  null,
                 state.isLoggedIn = false;
+            
         },
         setAuth: (state, action) => {
             state.auth = action.payload
@@ -24,5 +25,5 @@ export const authSlice = createSlice({
     }
 })
 
-export const { login,logout,setAuth } = authSlice.actions;
+export const { login,logoutFunc,setAuth } = authSlice.actions;
 export default authSlice.reducer

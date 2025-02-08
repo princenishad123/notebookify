@@ -74,7 +74,8 @@ export const authCheck = async (req,res) => {
         console.log(`error in check auth ${error}`)
     }
 }
-export const logout = async (req,res) => {
+export const logout = async (req, res) => {
+ 
     try {
        res.cookie("token", "", {
           maxAge:0

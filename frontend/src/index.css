@@ -2,8 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-  .no-scrollbar {
+  .no-scrollbar{
     scrollbar-width: none;
-    -ms-overflow-style: none;
+  
   }
+
+    /* width */
+    .newScrollbar::-webkit-scrollbar {
+      scrollbar-width: 2px;
+    }
+  
+    /* Track */
+    .newScrollbar::-webkit-scrollbar-track {
+      scrollbar-width: 2px;
+      background: #02fbee;
+    }
+  
+    /* Handle */
+    .newScrollbar::-webkit-scrollbar-thumb {
+      background: #888;
+      scrollbar-width: 2px;
+    }
+  
+    /* Handle on hover */
+    .newScrollbar::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
 }

@@ -1,10 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const api = createApi({
+    tagTypes:["getSectionTag","getUserTag","getTopicTag"],
     baseQuery: fetchBaseQuery({
         baseUrl: import.meta.env.VITE_MODE === 'development' ? "http://localhost:3000/api/v1" : "/api/v1",
         credentials: "include",
     }),
+    tagTypes:["User","Section","Topic"],
 
     endpoints: (builder) => ({
 
@@ -20,6 +22,7 @@ export const api = createApi({
                 method: "POST",
                 body:data
             }),
+            invalidatesTags:["getUserTag"],
         }),
 
         login: builder.mutation({
@@ -46,6 +49,7 @@ export const api = createApi({
                 method: "POST",
                 body:data
             }),
+            invalidatesTags:["getSectionTag"]
         }),
 
         addTopics: builder.mutation({
@@ -54,28 +58,31 @@ export const api = createApi({
                 method: "POST",
                 body:data
             }),
+            invalidatesTags:["getTopicTag"]
         }),
 
 
      getSections: builder.query({
     query: ({ data, language }) => ({
         url: `/language/${language}`,
-        method: "GET",
-    }),
+             method: "GET",
+         providesTags:["getSectionTag"]
+         }),
+        
 }),
 
         getTopics: builder.query({
             query: ({topicName,language}) => ({
                 url: `/topics/${language}/${topicName}`,
                 method: "GET",
-               
+               providesTags:["getTopicTag"]
             }),
         }),
         getUsers: builder.query({
             query: () => ({
                 url:'/admin/users',
                 method: "GET",
-               
+               providesTags:["getUserTag"]
             }),
         }),
 

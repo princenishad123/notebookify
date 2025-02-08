@@ -5,7 +5,7 @@ export const sectionController = async (req,res) => {
     try {
         const { language, name, topic } = req.body;
 
-        console.log(language,name)
+
 
         if(!language) return res.status(400).json({message:"Please Enter Language"})
         if(!name) return res.status(400).json({message:"Please select section name"})

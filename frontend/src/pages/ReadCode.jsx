@@ -42,7 +42,7 @@ console.log(a)`);
   return (
     <>
       <div className="w-full min-h-[88vh] flex gap-4">
-        <aside className="w-96 border border-slate-500 overflow-x-hidden overflow-y-scroll">
+        <aside className="w-96 sm:w-[420px] max-h-[88vh] border border-slate-500 overflow-x-hidden overflow-y-scroll ">
           {loading2 ? (
             <>
               <SectionSkeleton />

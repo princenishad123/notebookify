@@ -2,9 +2,9 @@ import React from "react";
 import { useCheckAuthUserQuery } from "../rtkQuery/query";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "../redux/auth.slice";
-const ProtectedRoute = ({ route }) => {
+export const ProtectedRoute = ({ route }) => {
   const { data, isLoading, isError } = useCheckAuthUserQuery();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -22,5 +22,3 @@ const ProtectedRoute = ({ route }) => {
     navigate("/login");
   }
 };
-
-export default ProtectedRoute;

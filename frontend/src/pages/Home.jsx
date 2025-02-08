@@ -33,13 +33,13 @@ const Home = () => {
         </button>
         <div className="overflow-x-scroll text-nowrap no-scrollbar px-4 scroll-container">
           <ul className="inline-block whitespace-nowrap px-4">
-            {languages.map((lang, index) => (
+            {languages.map((e, index) => (
               <li
                 className="inline-block mx-1 my-2 cursor-pointer px-2"
                 key={index}
               >
-                <NavLink to={`/language/${lang.toLocaleLowerCase()}`}>
-                  {lang}
+                <NavLink to={`/language/${e.value.toLocaleLowerCase()}`}>
+                  {e.language}
                 </NavLink>
               </li>
             ))}

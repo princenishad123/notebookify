@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/auth.slice";
+import { logoutFunc } from "../redux/auth.slice";
 import { useLogoutMutation } from "../rtkQuery/query";
 import toast from "react-hot-toast";
 const Navbar = () => {
@@ -11,10 +11,12 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const handleLogout = async () => {
     localStorage.removeItem("auth");
-    dispatch(logout());
+
     let res = await logout();
 
     if (res.error) return toast.error("server error");
+    toast.success("Logout success");
+    dispatch(logoutFunc(null));
   };
   return (
     <div className="navbar bg-gray-900 sm:px-8">

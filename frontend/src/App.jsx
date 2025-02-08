@@ -6,7 +6,7 @@ import Signin from "./pages/Signin";
 import Upload from "./pages/Upload";
 
 import ReadCode from "./pages/ReadCode";
-import ProtectedRoute from "./lib/ProtectedRoute";
+import { ProtectedRoute } from "./lib/ProtectedRoute";
 
 import Admin from "./pages/Admin";
 const App = () => {
